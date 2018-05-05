@@ -1,0 +1,127 @@
+@import "../../../../../src/assets/css/public";
+@import "../../../../../src/assets/css/mixin/mixin";
+
+$tabH: 38px;
+$back: #ebeef2; //模块背景颜色  --  较深的灰色
+$back-active: #f4f6f9; //模块背景颜色  --  较浅的灰色
+$col: #999; //tabs 字体颜色  --  较浅的灰色
+$col-active: #444; //tabs 字体颜色  --  较深的灰色
+$border: #ddd; //tabs 字体颜色  --  较浅的灰色
+$border-active: #d5d5d5; //tabs 字体颜色  --  较深的灰色
+$close-btn: #dc255f; //tabs close button color
+.tabs-view-container {
+  display: block;
+  height: 0;
+  vertical-align: top;
+  background-color: $back;
+  @include transition(all, .4s, linear);
+  a.tabs-view {
+    display: inline-block;
+    height: 100%;
+    line-height: $tabH;
+    &.tag-active {
+      background-color: $back-active;
+      .el-tag {
+        color: $col-active;
+        border-color: $border-active;
+      }
+    }
+    .el-tag {
+      height: auto;
+      padding: 0 10px;
+      color: $col;
+      border-radius: 0;
+      border: none;
+      border-right: 1px solid $border;
+      background-color: transparent;
+      .el-tag-text {
+        padding-right: 30px;
+      }
+      i.el-icon-close {
+        visibility: hidden;
+        &:hover {
+          color: $close-btn;
+          background: transparent;
+        }
+      }
+    }
+    &:hover {
+      i.el-icon-close {
+        visibility: visible;
+      }
+    }
+  }
+  .tabs-view-allClose {
+    height: 100%;
+    line-height: $tabH;
+    cursor: pointer;
+    svg {
+      color: $col;
+      font-size: 1.2em;
+      &:hover {
+        color: $col-active;
+      }
+    }
+  }
+  &.tag-view-show {
+    height: $tabH;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .tabs-view-container a.tabs-view {
+    display: inline-block;
+  }
+}
+
+@media screen and (min-width: 780px) and (max-width: 899px) {
+  .tabs-view-container a.tabs-view {
+    display: none;
+  }
+  .tabs-view-container a.tabs-view:nth-child(n+1) {
+    display: inline-block;
+  }
+}
+
+@media screen and (min-width: 660px) and (max-width: 779px) {
+  .tabs-view-container a.tabs-view {
+    display: none;
+  }
+  .tabs-view-container a.tabs-view:nth-child(n+2) {
+    display: inline-block;
+  }
+}
+
+@media screen and (min-width: 540px) and (max-width: 659px) {
+  .tabs-view-container a.tabs-view {
+    display: none;
+  }
+  .tabs-view-container a.tabs-view:nth-child(n+3) {
+    display: inline-block;
+  }
+}
+
+@media screen and (min-width: 410px) and (max-width: 539px) {
+  .tabs-view-container a.tabs-view {
+    display: none;
+  }
+  .tabs-view-container a.tabs-view:nth-child(n+4) {
+    display: inline-block;
+  }
+}
+
+@media screen and (min-width: 290px) and (max-width: 409px) {
+  .tabs-view-container a.tabs-view {
+    display: none;
+  }
+  .tabs-view-container a.tabs-view:nth-child(n+5) {
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width: 289px) {
+  .tabs-view-container a.tabs-view {
+    display: none;
+  }
+}
+
